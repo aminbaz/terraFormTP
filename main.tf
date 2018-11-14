@@ -47,3 +47,29 @@ resource "aws_route_table_association" "public_subnet_a" {
   subnet_id      = "${aws_subnet.subnet13.id}"
   route_table_id = "${aws_route_table.public_routetable.id}"
 }
+
+
+resource "aws_security_group" "allow_all" {
+  name        = "my_security"
+  description = "Allow all inbound traffic"
+  vpc_id      = "${aws_vpc.main.id}"
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_db_instance" "default" {
+  allocated_storage    = 10
+  storage_type         = "gp2"
+  engine               = "mysql"
+  engine_version       = "5.7"
+  instance_class       = "db.t2.micro"
+  name                 = "mydb"
+  username             = "foo"
+  password             = "foobarbaz"
+  parameter_group_name = "default.mysql5.7"
+}
