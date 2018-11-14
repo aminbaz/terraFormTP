@@ -1,14 +1,15 @@
-resource "aws_subnet" "subnet1" {
+resource "aws_subnet" "subnet10" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.1.0/24"
+  cidr_block = "10.0.10.0/24"
+  availability_zone = "eu-west-3a"
 }
 
-resource "aws_subnet" "subnet2" {
+resource "aws_subnet" "subnet12" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.2.0/24"
+  cidr_block = "10.0.12.0/24"
 }
 
-resource "aws_subnet" "subnet3" {
+resource "aws_subnet" "subnet13" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.3.0/24"
+  cidr_block = "10.0.13.0/24"
 }
