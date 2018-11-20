@@ -1,0 +1,10 @@
+---
+  - hosts: all
+    remote_user: root
+    become: yes
+    become_method: sudo
+    roles: 
+      - nginx
+      - php72
+      - php72fmp
+      - phpmyadmin

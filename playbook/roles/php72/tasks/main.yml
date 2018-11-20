@@ -1,0 +1,3 @@
+---
+  - name: Install php72
+    yum: name=php72 state=present

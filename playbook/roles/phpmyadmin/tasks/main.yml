@@ -1,0 +1,3 @@
+---
+  - name: Install php72-mysqlnd
+    yum: name=php72-mysqlnd state=present
