@@ -1,3 +1,11 @@
 ---
-  - name: Install php72-mysqlnd
-    yum: name=php72-mysqlnd state=present
+- name: Download phpmyadmin
+  get_url: 
+    url: https://files.phpmyadmin.net/phpMyAdmin/4.8.3/phpMyAdmin-4.8.3-all-languages.tar.gz
+    dest: ~/
+
+- name: Unzip phpmyadmin
+  unarchive:
+    src: ~/phpMyAdmin-4.8.3-all-languages.tar.gz
+    dest: /var/www/html/phpmyadmin
+    remote_src : yes
